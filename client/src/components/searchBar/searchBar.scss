@@ -1,0 +1,109 @@
+@import "../../responsive.scss";
+
+.searchBar {
+  .type {
+    display: flex; // Ensure buttons are aligned horizontally
+    margin-bottom: 10px; // Space between type buttons and form
+
+    button {
+      padding: 16px 36px;
+      border: 1px solid #999;
+      border-bottom: none;
+      cursor: pointer;
+      background-color: white;
+      text-transform: capitalize;
+      transition: background-color 0.3s, color 0.3s; // Smooth transition
+
+      &.active {
+        background-color: black; // Active button style
+        color: white;
+      }
+
+      &:first-child {
+        border-top-left-radius: 5px;
+        border-right: none;
+      }
+      &:last-child {
+        border-top-right-radius: 5px;
+        border-left: none;
+      }
+
+      &:hover {
+        background-color: rgba(246, 27, 27, 0.514); // Hover effect
+      }
+    }
+  }
+
+  form {
+    border: 1px solid #999;
+    display: flex;
+    justify-content: space-between;
+    height: 64px;
+    gap: 5px;
+
+    @include sm {
+      flex-direction: column;
+      border: none; // Remove border on small screens
+    }
+
+    input {
+      border: none;
+      padding: 0px 10px;
+      width: 200px; // Default width
+
+      @include lg {
+        padding: 0px 5px;
+
+        &:nth-child(2),
+        &:nth-child(3) {
+          width: 140px; // Adjust width for larger screens
+        }
+      }
+      @include md {
+        width: 200px; // Maintain width for medium screens
+        &:nth-child(2),
+        &:nth-child(3) {
+          width: 200px; // Adjust width for medium screens
+        }
+      }
+
+      @include sm {
+        width: auto; // Auto width on small screens
+        &:nth-child(2),
+        &:nth-child(3) {
+          width: auto; // Auto width for price fields
+        }
+        padding: 20px; // Increase padding for better UX
+        border: 1px solid #999; // Border for inputs on small screens
+      }
+
+      &:focus {
+        outline: none; // Remove default outline
+        border: 1px solid #3498db; // Custom focus border color
+      }
+    }
+
+    a {
+      flex: 1;
+      background-color: #fece51;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      button {
+        border: none;
+        cursor: pointer;
+        background-color: #fece51;
+        
+        @include sm {
+          padding: 10px; // Adjust padding for small screens
+        }
+        
+        img {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+  }
+}
